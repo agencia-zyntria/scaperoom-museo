@@ -1,4 +1,4 @@
-        # Itens e ordem
+         # Itens e ordem
 
     # Sala Velázquez -> Sala de las musas -> Cafeteria -> Vestuario -> Salida
     # Puerta_a - Aseo / Puerta_b - Sala de las musas / Puerta_c - Cafeteria / Puerta_d - Vestuario / Puerta_e - Salida
@@ -28,13 +28,17 @@ puerta_e = {
 
 
 
-    #Sala 1 Velazquez 
+
+   #Sala 1 Velazquez 
 
 sala_velazquez = {"name": "sala velazquez", "type":"room"},
 meninas = {"name":"Las Meninas", "type":"items"},
 hilanderas = { "name":"Las Hilanderas","type":"items"},
 breda = {"name":"La redicion de Breda", "type":"items"},
 cartel = {"name":"Cartel de suelo mojado","type":"items"}
+
+    #Aseo
+aseo = {"name": "aseo", "type":"room"},    
 
   #Sala 2 Sala de las musas 
   
@@ -49,17 +53,18 @@ vaso = {"name": "Vaso de agua", "type":"items"},
     #3 Cafeteria 
 
 cafeteria = {"name":"cafeteria", "type":"room"},
-nevera = {"name":"nevera", "type":"furniture"},
-mesa = {"name":"mesa 4", "type":"furniture"},
-barra = {"name":"barra", "type":"furniture"},
-papelera = {"name":"papelera", "type":"furniture"},
+nevera = {"name":"nevera", "type":"items"},
+mesa = {"name":"mesa 4", "type":"items"},
+barra = {"name":"barra", "type":"items"},
+papelera = {"name":"papelera", "type":"items"},
 
     #4 Vestuario
 vestuario = {"name":"vestuario", "type":"room"},
-taquilla_28 = {"name":"taquilla 28", "type":"furniture"},
-abrigo = {"name":"abrigo", "type":"furniture"},
-taquilla_75 = {"name":"taquilla 75", "type":"furniture"},    
-banco = {"name":"banco", "type":"furniture"},      
+taquilla_28 = {"name":"taquilla 28", "type":"items"},
+abrigo = {"name":"abrigo", "type":"items"},
+taquilla_75 = {"name":"taquilla 75", "type":"items"},    
+banco = {"name":"banco", "type":"items"},      
+
 
     #5 Salida
 salida = {"name": "salida"}
@@ -72,6 +77,9 @@ llave_c = {"name":"llave C", "type": "llave", "target": puerta_c}
 llave_d = {"name":"llave D", "type": "llave", "target": puerta_d}
 llave_e = {"name":"llave E", "type": "llave", "target": puerta_e}
 llave_f = {"name":"llave F", "type": "llave"}
+
+    #pista
+pista_carlos = {"name":"pista", "type":"clue"}
 
 # definir qué elementos/habitaciones están relacionados
 
@@ -92,6 +100,7 @@ object_relations = {
     "nevera": [llave_d],
     "vestuario": [puerta_d],
     "puerta_d": [vestuario],
+ 
     
     "vestuario":[taquilla_28, abrigo, taquilla_75, banco, puerta_d, puerta_e],
     "taquilla_28":[llave_e],
