@@ -1,2 +1,102 @@
-taquilla_28 = {..., "code": "2468"}
-taquilla_75 = {..., "code": "13579"}
+        # Itens e ordem
+
+    # Sala Velázquez -> Sala de las musas -> Cafeteria -> Vestuario -> Salida
+    # Puerta_a - Aseo / Puerta_b - Sala de las musas / Puerta_c - Cafeteria / Puerta_d - Vestuario / Puerta_e - Salida
+    # llave_a - puerta_a / llave_b - puerta_b / llave_c - puerta_c / llave_d - puerta_d / llave_e - puerta_e / llave_f - trampa
+    # Sala Velázquez (Las Hilanderas - llave_a / Cartel de suelo mojado - llave_b)
+    # Sala de las musas (Carlos V - adivinha 1-5 (es el 3), 2 intentos -> "empieza por V" / Vigilante - par o impar? Par -> "14 letras" / Venus del Delfín - llave_C)
+    # Cafeteria (Nevera - llave_d / mesa 4 - papel con pista "frio")
+    # Vestuario (Taquilla 28 - codigo 2468 -> llave_e / Abrigo - llave_f / Taquilla 75 - codigo 13579 -> vacia)
+
+   
+
+puerta_a = {
+    "name":"puerta A", "type": "door"},
+    #Velazquez -> Aseo
+puerta_b = {
+    "name":"puerta B", "type": "door"},    
+    #Velazquez -> Sala de las musas  
+puerta_c = {
+    "name":"puerta C", "type": "door"},
+    #Sala de las musas -> Cafeteria
+puerta_d = {
+    "name":"puerta D", "type": "door"},
+    #Cafeteria -> Vestuario
+puerta_e = {
+    "name":"puerta E", "type": "door"}    
+    #Vestuario -> Salida        
+
+
+
+    #Sala 1 Velazquez 
+
+sala_velazquez = {"name": "sala velazquez", "type":"room"},
+meninas = {"name":"Las Meninas", "type":"items"},
+hilanderas = { "name":"Las Hilanderas","type":"items"},
+breda = {"name":"La redicion de Breda", "type":"items"},
+cartel = {"name":"Cartel de suelo mojado","type":"items"}
+
+  #Sala 2 Sala de las musas 
+  
+sala_musas = {"name": "sala de las musas", "type":"room"},
+carlos = {"name":"Calos V","type":"items"},
+hipnos = {"name":"Hipnos","type":"items"},
+vigilante = {"name":"Vigilante", "type":"items"},
+venus = {"name": "Venus del Delfín", "type":"items"},
+vaso = {"name": "Vaso de agua", "type":"items"},
+
+
+    #3 Cafeteria 
+
+cafeteria = {"name":"cafeteria", "type":"room"},
+nevera = {"name":"nevera", "type":"furniture"},
+mesa = {"name":"mesa 4", "type":"furniture"},
+barra = {"name":"barra", "type":"furniture"},
+papelera = {"name":"papelera", "type":"furniture"},
+
+    #4 Vestuario
+vestuario = {"name":"vestuario", "type":"room"},
+taquilla_28 = {"name":"taquilla 28", "type":"furniture"},
+abrigo = {"name":"abrigo", "type":"furniture"},
+taquilla_75 = {"name":"taquilla 75", "type":"furniture"},    
+banco = {"name":"banco", "type":"furniture"},      
+
+    #5 Salida
+salida = {"name": "salida"}
+
+
+    #llaves
+llave_a = {"name":"llave A", "type": "llave", "target": puerta_a}
+llave_b = {"name":"llave B", "type": "llave", "target": puerta_b}
+llave_c = {"name":"llave C", "type": "llave", "target": puerta_c}
+llave_d = {"name":"llave D", "type": "llave", "target": puerta_d}
+llave_e = {"name":"llave E", "type": "llave", "target": puerta_e}
+llave_f = {"name":"llave F", "type": "llave"}
+
+# definir qué elementos/habitaciones están relacionados
+
+object_relations = {
+    "sala_velazquez": [meninas, hilanderas, breda, cartel, puerta_a, puerta_b],
+    "hilanderas": [llave_a],
+    "cartel": [llave_b],
+    "aseo": [puerta_a],
+    "sala_musas": [puerta_b],
+    "puerta_b": [sala_musas],
+
+    "sala_musas": [carlos, hipnos, vigilante, venus, vaso, puerta_b, puerta_c],
+    "venus": [llave_c],
+    "cafeteria": [puerta_c],
+    "puerta_c": [cafeteria],
+
+    "cafeteria":[nevera, mesa, barra, papelera, puerta_c, puerta_d],
+    "nevera": [llave_d],
+    "vestuario": [puerta_d],
+    "puerta_d": [vestuario],
+    
+    "vestuario":[taquilla_28, abrigo, taquilla_75, banco, puerta_d, puerta_e],
+    "taquilla_28":[llave_e],
+    "abrigo":[llave_f],
+    "salida":[puerta_e],
+    "puerta_e": [salida]  
+
+}
