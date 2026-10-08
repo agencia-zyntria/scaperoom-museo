@@ -1,6 +1,6 @@
 # ============================================================
 # DICCIONARIO DE DATOS
-# Sala Velázquez -> Sala de las musas -> Cafetería -> Vestuario -> Salida
+# Sala Velázquez -> Sala de las musas -> Cafetería -> Vestuario -> Cafetería -> Salida
 # ============================================================
 
 # Puertas
@@ -8,7 +8,7 @@ puerta_a = {"name": "puerta A", "type": "door"}   # Velázquez -> Aseo (trampa)
 puerta_b = {"name": "puerta B", "type": "door"}   # Velázquez -> Sala de las musas
 puerta_c = {"name": "puerta C", "type": "door"}   # Sala de las musas -> Cafetería
 puerta_d = {"name": "puerta D", "type": "door"}   # Cafetería -> Vestuario
-puerta_e = {"name": "puerta E", "type": "door"}   # Vestuario -> Salida
+puerta_e = {"name": "puerta E", "type": "door"}   # Cafetería -> Salida
 
 # Sala 1: Velázquez
 sala_velazquez = {"name": "sala velazquez", "type": "room"}
@@ -73,8 +73,8 @@ object_relations = {
     sala_velazquez["name"]: [meninas, hilanderas, breda, cartel, puerta_a, puerta_b],
     aseo["name"]: [puerta_a],
     sala_musas["name"]: [carlos, hipnos, vigilante, venus, vaso, puerta_b, puerta_c],
-        cafeteria["name"]: [barra, mesa, papelera, nevera, puerta_c, puerta_d],
-    vestuario["name"]: [banco, taquilla_75, abrigo, taquilla_28, puerta_d, puerta_e],
+    cafeteria["name"]: [barra, mesa, papelera, nevera, puerta_c, puerta_d, puerta_e],
+    vestuario["name"]: [banco, taquilla_75, abrigo, taquilla_28, puerta_d],
 
     # Contenido de los objetos
     hilanderas["name"]: [llave_a],
@@ -92,7 +92,7 @@ object_relations = {
     puerta_b["name"]: [sala_velazquez, sala_musas],
     puerta_c["name"]: [sala_musas, cafeteria],
     puerta_d["name"]: [cafeteria, vestuario],
-    puerta_e["name"]: [vestuario, salida],
+    puerta_e["name"]: [cafeteria, salida],
 }
 
 # ============================================================
